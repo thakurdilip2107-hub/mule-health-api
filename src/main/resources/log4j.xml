@@ -5,20 +5,23 @@
   Expected: SUCCESS via replaceAnyPattern=true
 -->
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
     <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
         <param name="Target" value="System.out"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+            <PatternLayout pattern="%-4r [%t] %-5p %c %x - %m%n"/>
         </layout>
     </appender>
+
     <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
         <param name="File"           value="${app.home}/logs/mule-health-api.log"/>
         <param name="MaxFileSize"    value="5MB"/>
         <param name="MaxBackupIndex" value="3"/>
         <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n"/>
+            <PatternLayout pattern="%-4r [%t] %-5p %c %x - %m%n"/>
         </layout>
     </appender>
+
     <root>
         <priority value="INFO"/>
         <appender-ref ref="CONSOLE"/>
